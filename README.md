@@ -29,7 +29,7 @@ Este repositório contém a implementação de um projeto que explora a utiliza�
 
 * Os comandos devem ser executados em terminais separados
 
-ATENÇÃO: Utilize os mapas contidos na pasta "maps" deste repositório, trocando a referência no arquivo de launch do Stage simulator para o mapa desejado.
+ATENÇÃO: Utilize os mapas contidos na pasta "maps" deste repositório, trocando a referência no arquivo de launch do pacote turtlebot_stage para o mapa desejado.
 
 
 Gabriel Paludo Licks
