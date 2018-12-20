@@ -21,7 +21,7 @@ class Environment:
         # rospy.init_node('environment', anonymous=True)
 
         self.start_pos = (1.5, 1.5)
-        self.dest_pos = (9.0, 1.5)
+        self.dest_pos = (8.5, 1.5)
 
         # self.prev_state = self.start_pos
 
@@ -30,7 +30,8 @@ class Environment:
         self.base_pose = None
         self.laser_distance = None
 
-        self.laser_threshold = 0.7
+        self.laser_threshold = 0.5
+
         self.rate = rospy.Rate(10)
 
         # Pubs
@@ -55,14 +56,14 @@ class Environment:
         # Get state reward
         reward = self.get_reward(state, action)
         if done == True:
-            reward -= 100
+            reward -= 200
         # print("Reward:", reward)
 
         # Check if is state arrived is goal state
         if state[0] >= self.dest_pos[0]:
             print("============= ARRIVED AT GOAL STATE =============")
             done = True
-            reward += 50
+            reward += 100
 
         # self.prev_state = state
 
@@ -84,17 +85,17 @@ class Environment:
         if action == 'FORWARD':
             reward = 20
         elif action == 'LEFT':
-            reward = -20
+            reward = 10
         elif action == 'RIGHT':
-            reward = -20
+            reward = 10
         
         # Check Euclidean distance
-        # distance = math.sqrt((self.dest_pos[0] - state[0]) ** 2 + (self.dest_pos[1] - state[1]) ** 2)
-        # print("!!!!!!!!!!!!!Distance = ", distance)
+        distance = math.sqrt((self.start_pos[0] - state[0]) ** 2 + (self.start_pos[1] - state[1]) ** 2)
+        print("!!!!!!!!!!!!!Distance = ", distance)
 
-        # reward += reward * distance
+        reward = reward * distance
 
-        # reward -= reward * self.laser_distance
+        reward = reward * self.laser_distance
         
         return reward
 

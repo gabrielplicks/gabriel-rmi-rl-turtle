@@ -13,7 +13,7 @@ from q_value import Q_Value
 class Agent:
 
 
-    MAX_TRAINING_EPISODES = 500
+    MAX_TRAINING_EPISODES = 50000
     MAX_STEPS_PER_EPISODE = 50
 
 
@@ -44,6 +44,7 @@ class Agent:
 
 
     def f(self, qv):
+        # Check if Q-Value has been explored already
         if qv in self.q_values and self.frequency[qv] >= self.exploration:
             return self.q_values[qv]
         else:
@@ -58,6 +59,7 @@ class Agent:
         if state == None:
             return a
 
+        # Get action with highest value for the state
         for action in self.env.get_available_actions(state):
             qv = Q_Value(state, action)
             f_value = self.f(qv)
@@ -66,12 +68,13 @@ class Agent:
                 a = action
 
         return a
-    
+
 
 
     def max_a(self, state):
         max_value = float('-inf')
 
+        # Get maximum state-action value in a state
         for action in self.env.get_available_actions(state):
             qv = Q_Value(state, action)
             if qv in self.q_values:
@@ -88,12 +91,13 @@ class Agent:
 
     def get_random_action(self, state):
         actions = list()
+
+        # Choose a random action from the available
         for action in self.env.get_available_actions(state):
             qv = Q_Value(state, action)
             if qv not in self.q_values:
                 actions.append(action)
 
-        # VERIFICAR ISSO DE FICAR SEM ACOES!!!!
         if not actions:
             return 'FORWARD'
         else:
@@ -182,13 +186,14 @@ class Agent:
 
                     self.rewards_list.append(self.episode_rewards[episode])
 
-                    # if episode+1 % 20 == 0:
-                    plt.plot(self.rewards_list)
-                    plt.ylabel('Reward')
-                    plt.xlabel('Episode')
-                    plt.savefig("rewards.png", bbox_inches="tight")
-                    plt.draw()
-                    plt.pause(0.001)
+                    print("------------------------Remaining:", episode%20)
+                    if (episode%20) == 0:
+                        plt.plot(self.rewards_list)
+                        plt.ylabel('Reward')
+                        plt.xlabel('Episode')
+                        plt.savefig("rewards.png", bbox_inches="tight")
+                        plt.draw()
+                        plt.pause(0.001)
                     
 
                     # Go to next episode
