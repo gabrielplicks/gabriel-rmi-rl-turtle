@@ -35,9 +35,13 @@ ATENÇÃO: Utilize os mapas contidos na pasta "maps" deste repositório, trocand
 
 ## Demo vídeos:
 
-* Corridor training
+* Corridor environment training with Q-Learning
+
 [![Corridor training](https://img.youtube.com/vi/0gP1HPKQ3RE/0.jpg)](https://www.youtube.com/watch?v=0gP1HPKQ3RE)
 
+* Corridor with Obstacle environment training with Q-Learning
+
+[![Corridor with Obstacle training](https://img.youtube.com/vi/uHoZYBAvNPc/0.jpg)](https://www.youtube.com/watch?v=uHoZYBAvNPc)
 
 
 Gabriel Paludo Licks
