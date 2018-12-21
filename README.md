@@ -33,6 +33,12 @@ Este repositório contém a implementação de um projeto que explora a utiliza�
 
 ATENÇÃO: Utilize os mapas contidos na pasta "maps" deste repositório, trocando a referência no arquivo de launch do pacote turtlebot_stage para o mapa desejado.
 
+## Demo vídeos:
+
+* Corridor training
+[![Corridor training](https://img.youtube.com/vi/0gP1HPKQ3RE/0.jpg)](https://www.youtube.com/watch?v=0gP1HPKQ3RE)
+
+
 
 Gabriel Paludo Licks
 
