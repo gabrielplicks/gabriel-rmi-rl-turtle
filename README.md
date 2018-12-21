@@ -19,6 +19,8 @@ Este repositório contém a implementação de um projeto que explora a utiliza�
 3. Execute o comando catkin_make na pasta catkin_ws
 4. Source no arquivo devel/setup.bash
 
+* É necessário dar permissão de execução aos arquivos Python. Utilize "chmod +x <nome_arquivo>.py"
+
 ## Para executar treinamento:
 
 1. Inicie a simulação do Stage:
